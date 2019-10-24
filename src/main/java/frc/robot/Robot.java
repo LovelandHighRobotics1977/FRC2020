@@ -20,7 +20,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.autonomous.AutonomousDefault;
+//import frc.robot.commands.autonomous.AutonomousDefault;
 import frc.robot.subsystems.ExampleSubsystem;
 
 /**
