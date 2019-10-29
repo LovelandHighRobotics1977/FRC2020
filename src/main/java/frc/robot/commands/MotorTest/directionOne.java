@@ -5,44 +5,54 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.MotorTest;
+package frc.robot.commands.motortest;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+//import frc.robot.subsystems.MotorTest;
+import frc.robot.commands.CommandBase;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class directionOne extends Command {
+public class directionOne extends CommandBase {
+  long startTime;
+  long endTime;
+  long commandTime = 150;
+
+
   public directionOne() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.kExampleSubsystem);
+    requires(motorTest);
   }
 
   // Called just before this Command runs the first time
-  @Override
   protected void initialize() {
+      startTime = System.currentTimeMillis();
+      endTime = startTime + commandTime;
   }
 
   // Called repeatedly when this Command is scheduled to run
-  @Override
   protected void execute() {
+    motorTest.directionOne();
   }
 
   // Make this return true when this Command no longer needs to run execute()
-  @Override
   protected boolean isFinished() {
+    if(System.currentTimeMillis() >= endTime){
+      return true;
+    }
     return false;
   }
 
   // Called once after isFinished returns true
-  @Override
   protected void end() {
+    motorTest.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  @Override
   protected void interrupted() {
+    motorTest.stop();
   }
 }
