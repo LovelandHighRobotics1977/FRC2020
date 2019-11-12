@@ -2,12 +2,12 @@ package frc.robot.commands.pneumatic;
 
 import frc.robot.commands.CommandBase;
 
-public class ArmDown extends CommandBase{
+public class armRaise extends CommandBase{
 	long startTime;
 	long endTime;
 	long commandTime = 5000;
 	
-	public ArmDown() {
+	public armRaise() {
 		requires(pneumatic);
 		
 	}
@@ -19,7 +19,7 @@ public class ArmDown extends CommandBase{
     }
 	
 	public void execute() {	
-		pneumatic.armLower();	
+		pneumatic.armraise();	
 	}
 	
 	protected boolean isFinished() {

@@ -2,12 +2,12 @@ package frc.robot.commands.pneumatic;
 
 import frc.robot.commands.CommandBase;
 
-public class ClawLower extends CommandBase{
+public class clawLower extends CommandBase{
 	long startTime;
 	long endTime;
 	long commandTime = 5000;
 	
-	public ClawLower() {
+	public clawLower() {
 		requires(pneumatic);
 
 	}
@@ -19,7 +19,7 @@ public class ClawLower extends CommandBase{
     }
 	
 	public void execute() {	
-		pneumatic.clawLower();	
+		pneumatic.clawlower();	
 	}
 	
 	protected boolean isFinished() {

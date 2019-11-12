@@ -68,10 +68,10 @@ public class OI {
 		//auxJoystick.startWhenPressed(new CommandAutonomous());
 		//auxJoystick.rightThumbWhileHeld(command);
 
-		driveJoystick.aWhenPressed(new ArmDown());
-		driveJoystick.bWhenPressed(new ArmUp());
-		driveJoystick.xWhenPressed(new ClawLower());
-		driveJoystick.yWhenPressed(new ClawRaise());
+		driveJoystick.aWhenPressed(new armLower());
+		driveJoystick.bWhenPressed(new armRaise());
+		driveJoystick.xWhileHeld(new clawLower());
+		driveJoystick.yWhileHeld(new clawRaise());
 	}
 	
 	public static OI getInstance() {

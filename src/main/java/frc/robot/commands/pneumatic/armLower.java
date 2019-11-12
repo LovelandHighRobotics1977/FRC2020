@@ -2,24 +2,24 @@ package frc.robot.commands.pneumatic;
 
 import frc.robot.commands.CommandBase;
 
-public class ArmUp extends CommandBase{
+public class armLower extends CommandBase{
 	long startTime;
 	long endTime;
 	long commandTime = 5000;
 	
-	public ArmUp() {
+	public armLower() {
 		requires(pneumatic);
-		
+
 	}
 	
 	protected void initialize() {
-		System.out.println("Pneumatic going up!");
+		System.out.println("Pneumatic going down!");
 		startTime = System.currentTimeMillis();
     	endTime = startTime + commandTime;
     }
 	
 	public void execute() {	
-		pneumatic.armRaise();	
+		pneumatic.armlower();	
 	}
 	
 	protected boolean isFinished() {
@@ -33,4 +33,5 @@ public class ArmUp extends CommandBase{
 	protected void end() {
 		pneumatic.stop();
 	}
+
 }

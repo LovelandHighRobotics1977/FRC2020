@@ -2,24 +2,24 @@ package frc.robot.commands.pneumatic;
 
 import frc.robot.commands.CommandBase;
 
-public class ClawRaise extends CommandBase{
+public class clawRaise extends CommandBase{
 	long startTime;
 	long endTime;
 	long commandTime = 5000;
 	
-	public ClawRaise() {
+	public clawRaise() {
 		requires(pneumatic);
-
+		
 	}
 	
 	protected void initialize() {
-		System.out.println("Pneumatic going down!");
+		System.out.println("Pneumatic going up!");
 		startTime = System.currentTimeMillis();
     	endTime = startTime + commandTime;
     }
 	
 	public void execute() {	
-		pneumatic.clawRaise();	
+		pneumatic.clawraise();	
 	}
 	
 	protected boolean isFinished() {
@@ -33,5 +33,4 @@ public class ClawRaise extends CommandBase{
 	protected void end() {
 		pneumatic.stop();
 	}
-
 }
