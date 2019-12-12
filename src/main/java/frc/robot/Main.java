@@ -15,15 +15,6 @@ import edu.wpi.first.wpilibj.RobotBase;
  * change the parameter class to the startRobot call.
  */
 public final class Main {
-  int age = 10;
-  float height = 22.2f;
-  double distance = 133.00000001;
-  long width = 50;
-  boolean isTall = true;
-
-  String name = "Landon";
-  char letter = 'A';
-
 
 
   private Main() {
