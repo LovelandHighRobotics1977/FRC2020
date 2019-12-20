@@ -12,15 +12,13 @@ public class Pneumatic extends Subsystem{
 	private Compressor compressor1;
 	//Relay compressorRelay = new Relay(0);
 	DoubleSolenoid arm;
-	DoubleSolenoid clawOne;
-	DoubleSolenoid clawTwo;
+	DoubleSolenoid claw;
 
 	
 	
 	Pneumatic(){
 		arm = new DoubleSolenoid(6,7);
-		clawOne = new DoubleSolenoid(4,5);
-		clawTwo = new DoubleSolenoid(0,1);
+		claw = new DoubleSolenoid(4,5);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
 		//compressorRelay.set(Relay.Value.kOn);
@@ -45,18 +43,15 @@ public class Pneumatic extends Subsystem{
 	}
 	
 	public void clawRaise() {
-		clawOne.set(DoubleSolenoid.Value.kForward);
-		clawTwo.set(DoubleSolenoid.Value.kForward);
+		claw.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void clawLower() {
-		clawOne.set(DoubleSolenoid.Value.kReverse);
-		clawOne.set(DoubleSolenoid.Value.kReverse);
+		claw.set(DoubleSolenoid.Value.kReverse);
 	}
 
 	public void stop(){
-		clawOne.set(DoubleSolenoid.Value.kOff);
-		clawTwo.set(DoubleSolenoid.Value.kOff);
+		claw.set(DoubleSolenoid.Value.kOff);
 		arm.set(DoubleSolenoid.Value.kOff);
 	}
 	
