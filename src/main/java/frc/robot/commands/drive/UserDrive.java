@@ -28,7 +28,7 @@ public class UserDrive extends CommandBase {
 		if (Math.abs(turn) < .2) {
 			turn = 0;
 		}
-		drive.drive(-hPower, -vPower, -turn);
+		drive.drive(-vPower, -turn);
 
 		//boolean aButton = 
 		/*if(oi.getDriveJoystick().getAButtonValue()){
