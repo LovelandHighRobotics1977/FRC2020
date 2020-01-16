@@ -60,7 +60,7 @@ public class Pneumatic extends Subsystem{
 	// 	piston4.set(DoubleSolenoid.Value.kReverse);
 	// }
 	public void stop() {
-		piston1.set(DoubleSolenoid.Value.kOff);
+		hook.set(DoubleSolenoid.Value.kOff);
 		//compressorRelay.set(Relay.Value.kOff);
 	}
 	
