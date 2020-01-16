@@ -10,7 +10,7 @@ public class Pneumatic extends Subsystem{
 	public static Pneumatic instance;
 	private Compressor compressor1;
 	//Relay compressorRelay = new Relay(0);
-	DoubleSolenoid piston1;
+	DoubleSolenoid hook;
 	DoubleSolenoid piston2;
 	DoubleSolenoid piston3;
 	DoubleSolenoid piston4;
@@ -18,7 +18,7 @@ public class Pneumatic extends Subsystem{
 	
 
 	Pneumatic(){
-		piston1 = new DoubleSolenoid(0, 0);
+		hook = new DoubleSolenoid(0, 0);
 		piston2 = new DoubleSolenoid(0,0);
 		piston3 = new DoubleSolenoid(0,0);
 		piston4 = new DoubleSolenoid(0,0);
@@ -38,27 +38,27 @@ public class Pneumatic extends Subsystem{
     	return instance;
 	}
 	
-	public void clawraise() {
-		piston1.set(DoubleSolenoid.Value.kForward);
-		piston2.set(DoubleSolenoid.Value.kForward);
-	}
+	// public void clawraise() {
+	// 	piston1.set(DoubleSolenoid.Value.kForward);
+	// 	piston2.set(DoubleSolenoid.Value.kForward);
+	// }
 	
-	public void clawlower() {
-		piston1.set(DoubleSolenoid.Value.kReverse);
-		piston2.set(DoubleSolenoid.Value.kReverse);
+	// public void clawlower() {
+	// 	piston1.set(DoubleSolenoid.Value.kReverse);
+	// 	piston2.set(DoubleSolenoid.Value.kReverse);
 
-	}
+	// }
 	
-	public void armraise() {
-		piston3.set(DoubleSolenoid.Value.kForward);
-		piston4.set(DoubleSolenoid.Value.kForward);
+	// public void armraise() {
+	// 	piston3.set(DoubleSolenoid.Value.kForward);
+	// 	piston4.set(DoubleSolenoid.Value.kForward);
 
-	}
+	// }
 
-	public void armlower() {
-		piston3.set(DoubleSolenoid.Value.kReverse);
-		piston4.set(DoubleSolenoid.Value.kReverse);
-	}
+	// public void armlower() {
+	// 	piston3.set(DoubleSolenoid.Value.kReverse);
+	// 	piston4.set(DoubleSolenoid.Value.kReverse);
+	// }
 	public void stop() {
 		piston1.set(DoubleSolenoid.Value.kOff);
 		//compressorRelay.set(Relay.Value.kOff);
