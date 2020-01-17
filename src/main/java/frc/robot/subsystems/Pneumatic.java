@@ -37,28 +37,45 @@ public class Pneumatic extends Subsystem{
     	}
     	return instance;
 	}
-	
-	// public void clawraise() {
-	// 	piston1.set(DoubleSolenoid.Value.kForward);
-	// 	piston2.set(DoubleSolenoid.Value.kForward);
-	// }
-	
-	// public void clawlower() {
-	// 	piston1.set(DoubleSolenoid.Value.kReverse);
-	// 	piston2.set(DoubleSolenoid.Value.kReverse);
+	public void hookRaise(){
 
-	// }
+		hookLift.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void hookLower(){
+
+		hookLift.set(DoubleSolenoid.Value.kReverse);
+	}
+
+	public void hookExtend(){
+
+		hook.set(DoubleSolenoid.Value.kForward);
+	}
 	
-	// public void armraise() {
-	// 	piston3.set(DoubleSolenoid.Value.kForward);
-	// 	piston4.set(DoubleSolenoid.Value.kForward);
+	public void hookContract(){
 
-	// }
+		hook.set(DoubleSolenoid.Value.kReverse);
+	}
 
-	// public void armlower() {
-	// 	piston3.set(DoubleSolenoid.Value.kReverse);
-	// 	piston4.set(DoubleSolenoid.Value.kReverse);
-	// }
+	public void boxUp(){
+
+		boxDump.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void boxDown(){
+
+		boxDump.set(DoubleSolenoid.Value.kReverse);
+	}
+
+	public void boxOpen(){
+
+		boxScoop.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void boxClose(){
+
+		boxScoop.set(DoubleSolenoid.Value.kReverse);
+	}
 	public void stop() {
 		hook.set(DoubleSolenoid.Value.kOff);
 		//compressorRelay.set(Relay.Value.kOff);
