@@ -11,17 +11,17 @@ public class Pneumatic extends Subsystem{
 	private Compressor compressor1;
 	//Relay compressorRelay = new Relay(0);
 	DoubleSolenoid hook;
-	DoubleSolenoid piston2;
-	DoubleSolenoid piston3;
-	DoubleSolenoid piston4;
+	DoubleSolenoid hookLift;
+	DoubleSolenoid boxDump;
+	DoubleSolenoid boxScoop;
 
 	
 
 	Pneumatic(){
 		hook = new DoubleSolenoid(0, 0);
-		piston2 = new DoubleSolenoid(0,0);
-		piston3 = new DoubleSolenoid(0,0);
-		piston4 = new DoubleSolenoid(0,0);
+		hookLift = new DoubleSolenoid(0,0);
+		boxDump = new DoubleSolenoid(0,0);
+		boxScoop = new DoubleSolenoid(0,0);
 
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
