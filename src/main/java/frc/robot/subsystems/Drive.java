@@ -85,15 +85,15 @@ public class Drive extends Subsystem {
      */
 	
 	ControlMode iJustWantToSleep = ControlMode.PercentOutput;
-	public void drive(double hPower, double vPower, double turn) {
-        frontLeft.set(iJustWantToSleep, (-hPower + vPower + (turn * turnPowerCoefficient)) * voltageCoefficient * directCoefficient);
-        frontRight.set(iJustWantToSleep, (-hPower - vPower + (turn * turnPowerCoefficient)) * voltageCoefficient * directCoefficient);
-        backLeft.set(iJustWantToSleep, (hPower + vPower + (turn * turnPowerCoefficient)) * voltageCoefficient * directCoefficient);
-        backRight.set(iJustWantToSleep, (hPower - vPower + (turn * turnPowerCoefficient)) * voltageCoefficient * directCoefficient);
+	public void drive(double vPower, double turn) {
+        frontLeft.set(iJustWantToSleep, vPower);
+        frontRight.set(iJustWantToSleep, vPower);
+        backLeft.set(iJustWantToSleep, vPower);
+        backRight.set(iJustWantToSleep, vPower);
     }
 	
 	public void stop() {
-    	drive(0, 0, 0);
+    	drive(0, 0);
     }
 	
 	public boolean isSpeedToggle() {
