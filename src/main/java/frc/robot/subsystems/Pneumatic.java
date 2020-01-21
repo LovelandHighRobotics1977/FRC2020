@@ -22,7 +22,7 @@ public class Pneumatic extends Subsystem{
 		hookLift = new DoubleSolenoid(0,0);
 		boxDump = new DoubleSolenoid(0,0);
 		boxScoop = new DoubleSolenoid(0,0);
-		boxElevate = new DoubleSolenoid(0,0);
+		boxLift = new DoubleSolenoid(0,0);
 
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
