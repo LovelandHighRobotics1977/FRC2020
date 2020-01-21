@@ -15,11 +15,11 @@ import frc.robot.commands.CommandBase;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class Climb extends CommandBase {
+public class Back extends CommandBase {
   long startTime;
   long endTime;
   long commandTime = 5000;
-  public Climb() {
+  public Back() {
     // Use requires() here to declare subsystem dependencies
     requires(pneumatics);
   }
@@ -34,7 +34,7 @@ public class Climb extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    pneumatics.climb();
+    pneumatics.back();
   }
 
   // Make this return true when this Command no longer needs to run execute()
