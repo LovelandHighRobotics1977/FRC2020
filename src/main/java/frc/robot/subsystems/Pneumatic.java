@@ -14,6 +14,7 @@ public class Pneumatic extends Subsystem{
 	DoubleSolenoid hookLift;
 	DoubleSolenoid boxDump;
 	DoubleSolenoid boxScoop;
+	DoubleSolenoid Anon;
 
 	
 
@@ -76,6 +77,16 @@ public class Pneumatic extends Subsystem{
 	public void boxClose(){
 
 		boxScoop.set(DoubleSolenoid.Value.kReverse);
+	}
+
+	public void anonExtend(){
+
+		Anon.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void anonContract(){
+
+		Anon.set(DoubleSolenoid.Value.kReverse);
 	}
 	public void stop() {
 		hook.set(DoubleSolenoid.Value.kOff);
