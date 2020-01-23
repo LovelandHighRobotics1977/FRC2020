@@ -14,7 +14,8 @@ public class Pneumatic extends Subsystem{
 	DoubleSolenoid hookLift;
 	DoubleSolenoid boxDump;
 	DoubleSolenoid boxScoop;
-	DoubleSolenoid boxLift;
+	DoubleSolenoid boxLift1;
+	DoubleSolenoid boxLift2;
 
 	
 
@@ -23,7 +24,8 @@ public class Pneumatic extends Subsystem{
 		hookLift = new DoubleSolenoid(0,0);
 		boxDump = new DoubleSolenoid(0,0);
 		boxScoop = new DoubleSolenoid(0,0);
-		boxLift = new DoubleSolenoid(0,0);
+		boxLift1 = new DoubleSolenoid(0,0);
+		boxLift2 = new DoubleSolenoid(0,0);
 
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
@@ -81,15 +83,22 @@ public class Pneumatic extends Subsystem{
 
 	public void boxElevate(){
 
-		boxLift.set(DoubleSolenoid.Value.kForward);
+		boxLift1.set(DoubleSolenoid.Value.kForward);
+		boxLift2.set(DoubleSolenoid.Value.kForward);
 	}
 
 	public void boxDecend(){
 
-		boxLift.set(DoubleSolenoid.Value.kReverse);
+		boxLift1.set(DoubleSolenoid.Value.kReverse);
+		boxLift2.set(DoubleSolenoid.Value.kReverse);
 	}
 	public void stop() {
 		hook.set(DoubleSolenoid.Value.kOff);
+		hookLift.set(DoubleSolenoid.Value.kOff);
+		boxDump.set(DoubleSolenoid.Value.kOff);
+		boxScoop.set(DoubleSolenoid.Value.kOff);
+		boxLift1.set(DoubleSolenoid.Value.kOff);
+		boxLift2.set(DoubleSolenoid.Value.kOff);
 		//compressorRelay.set(Relay.Value.kOff);
 	}
 	
