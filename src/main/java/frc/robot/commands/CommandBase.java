@@ -3,6 +3,7 @@ import frc.robot.subsystems.Drive;
 import frc.robot.OI;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.MotorTest;
+import frc.robot.subsystems.Pneumatic;
 
 public abstract class CommandBase extends Command {
 	/**
@@ -11,6 +12,7 @@ public abstract class CommandBase extends Command {
 	protected static OI oi;
 	protected static MotorTest motorTest;
 	protected static Drive drive;
+	protected static Pneumatic pneumatic;
 	/**
 	 * Initialize the CommandBase, in doing so accessing and initializing every
 	 * primary subsystem on the robot. Use this during robot initialization to
