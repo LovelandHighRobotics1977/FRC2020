@@ -1,11 +1,14 @@
 package frc.robot.commands.drive;
 
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import frc.robot.commands.CommandBase;
 
 //import edu.wpi.first.wpilibj.Joystick;
 
 public class UserDrive extends CommandBase {
 	//Time for 180 degree turn
+
+	RumbleType type = RumbleType.kRightRumble;
 	
 	public UserDrive() {
 		requires(drive);
@@ -29,6 +32,7 @@ public class UserDrive extends CommandBase {
 			turn = 0;
 		}
 		drive.drive(-vPower);
+		oi.getDriveJoystick().setRumble(type, 0.5);
 		drive.turn(-turn);
 
 		//boolean aButton = 

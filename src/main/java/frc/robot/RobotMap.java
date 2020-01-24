@@ -31,6 +31,7 @@ public class RobotMap {
 	public static final int DRIVE_FRONT_RIGHT_TALON = 2;
 	public static final int DRIVE_BACK_LEFT_TALON= 0;
 	public static final int DRIVE_BACK_RIGHT_TALON = 1;
+	public static final int WHEEL_MOTOR = 4;
   
 
 		public static final int XBOX_LEFT_X = 0;
