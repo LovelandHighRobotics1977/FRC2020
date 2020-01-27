@@ -54,7 +54,7 @@ public class OI {
 		//Set other controller here once we know if it is used 
 		//manipulatorJoystick = new XBoxController(1);
 	}
-	
+
 	public void init() {
 		//Put things here when you want buttons to trigger
 		//Speed toggle
@@ -66,8 +66,7 @@ public class OI {
 		//driveJoystick.rightWhenPressed(new TurnTime(500,1)); //THIS NEEDS TO BE Adjusted
 		//auxJoystick.startWhenPressed(new CommandAutonomous());
 		//auxJoystick.rightThumbWhileHeld(command);
-		driveJoystick.aWhenPressed(new );
-
+         
 	}
 	
 	public static OI getInstance() {
