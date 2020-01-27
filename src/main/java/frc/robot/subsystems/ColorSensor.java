@@ -28,6 +28,9 @@ public class ColorSensor extends Subsystem {
   private final I2C.Port i2cPort = I2C.Port.kOnboard;
   private final ColorSensorV3 m_colorSensor;
 
+  double IR;
+  Color detectedColor;
+
 
   ColorSensor(){
     wheelMotor = new TalonSRX(RobotMap.WHEEL_MOTOR);
@@ -44,9 +47,18 @@ public class ColorSensor extends Subsystem {
   
   public void readColor(){
 
-    Color detectedColor = m_colorSensor.getColor();
+    detectedColor = m_colorSensor.getColor();
+  }
 
+  public void readIR(){
+    IR = m_colorSensor.getIR();
+  }
 
+  public void outputValues(){
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("IR", IR);
   }
 
 
