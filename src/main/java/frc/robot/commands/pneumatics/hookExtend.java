@@ -70,7 +70,7 @@ public class hookExtend extends CommandBase {
 
   protected void execute() {
 
-    pneumatics.climb();
+    pneumatic.hookExtend();
 
   }
 
