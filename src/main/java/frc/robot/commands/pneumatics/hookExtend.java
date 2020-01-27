@@ -96,7 +96,7 @@ public class hookExtend extends CommandBase {
 
   protected void end() {
 
-    pneumatics.stop();
+    pneumatic.stop();
 
   }
 
@@ -110,7 +110,7 @@ public class hookExtend extends CommandBase {
 
   protected void interrupted() {
 
-    pneumatics.stop();
+    pneumatic.stop();
 
   }
 
