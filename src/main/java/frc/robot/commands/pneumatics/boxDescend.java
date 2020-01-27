@@ -32,7 +32,7 @@ import frc.robot.commands.CommandBase;
 
  */
 
-public class bocDescend extends CommandBase {
+public class boxDescend extends CommandBase {
 
   long startTime;
 
