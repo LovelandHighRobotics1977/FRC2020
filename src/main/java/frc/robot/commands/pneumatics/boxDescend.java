@@ -32,7 +32,7 @@ import frc.robot.commands.CommandBase;
 
  */
 
-public class hookExtend extends CommandBase {
+public class bocDescend extends CommandBase {
 
   long startTime;
 
@@ -40,7 +40,7 @@ public class hookExtend extends CommandBase {
 
   long commandTime = 5000;
 
-  public hookExtend() {
+  public boxDescend() {
 
     // Use requires() here to declare subsystem dependencies
 
@@ -70,7 +70,7 @@ public class hookExtend extends CommandBase {
 
   protected void execute() {
 
-    pneumatic.hookExtend();
+    pneumatic.boxDescend();
 
   }
 
