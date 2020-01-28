@@ -66,7 +66,6 @@ public class Pneumatics extends Subsystem{
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
 		
 	}
 }
