@@ -26,15 +26,20 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	
+	
+	//Port values will need to be changed
+
+	
 	public static final ControlMode TALON_MODE= ControlMode.PercentOutput;
-	public static final int ARM_MOTOR = 5; 
-	public static final int SHOOTER_MOTOR = 13;
+	public static final int COLOR_WHEEL = 0; 
+	public static final int  POWER_CELL_PICKUP_1 = 0;
 	public static final int DRIVE_FRONT_LEFT_TAlON = 3;
 	public static final int DRIVE_FRONT_RIGHT_TALON = 2;
 	public static final int DRIVE_BACK_LEFT_TALON= 0;
 	public static final int DRIVE_BACK_RIGHT_TALON = 1;
-	public static final int RAMP_MOTOR = 6;
-  public static final int DISK_MOTOR = 4;
+	public static final int POWER_CELL_PICKUP2 = 0;
+//   public static final int DISK_MOTOR = 4;
   
 
 		public static final int XBOX_LEFT_X = 0;
