@@ -56,6 +56,12 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotPeriodic() {
 		//System.out.println("This works");
+
+		CommandBase.colorSensor.readColor();
+		CommandBase.colorSensor.readIR();
+		CommandBase.colorSensor.outputValues();
+
+
 		
 	}
 	/**
