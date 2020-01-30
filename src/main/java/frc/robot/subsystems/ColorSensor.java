@@ -55,6 +55,15 @@ public class ColorSensor extends Subsystem {
     return IR;
   }
 
+  public void rotControl(){
+    double wheelCir;
+    double rotAmount = 
+  }
+
+  public void posControl(){
+
+  }
+
   public void outputValues(){
     SmartDashboard.putNumber("Red", detectedColor.red);
     SmartDashboard.putNumber("Green", detectedColor.green);
