@@ -23,7 +23,7 @@ public class ColorWheel {
 private TalonSRX colorWheel;
 
 
-public ColorWheel() {
+public void colorwheel() {
 
     colorWheel = new TalonSRX(RobotMap.COLOR_WHEEL);
     ControlMode iJustWantToSleep = ControlMode.PercentOutput;

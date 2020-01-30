@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
+import frc.robot.commands.drive.*;
 import frc.robot.commands.pneumatics.*;
 import frc.robot.input.XBoxController;
 /**
@@ -75,7 +75,7 @@ public class OI {
 		 driveJoystick.bWhenPressed(new boxClose());
 		 driveJoystick.rightThumbWhenPressed(new hookExtend());
 		 driveJoystick.rightThumbWhenReleased(new hookContract());
-		 
+		 auxJoystick.rightThumbWhileHeld(new colorwheel()) ;
 		}
 	
 	public static OI getInstance() {
