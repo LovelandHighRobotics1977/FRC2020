@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.UserDrive;
+import frc.robot.commands.CommandBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -36,7 +37,7 @@ public class Drive extends Subsystem {
 	private TalonSRX backRight;
 	
 	
-	private UserDrive userDrive;
+	public UserDrive userDrive;
 	
 	//May use if this we need to
 	//robotDrive.setInvertedMotor(MotorType.frontLeft, true);

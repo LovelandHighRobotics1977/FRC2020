@@ -13,6 +13,14 @@ public class UserDrive extends CommandBase {
 	public UserDrive() {
 		requires(drive);
 	}
+
+	public void vibrator(){
+		oi.getDriveJoystick().setRumble(type, 0.5);
+	}
+
+	public void stopVibrator(){
+		oi.getDriveJoystick().setRumble(type, 0.0);
+	}
 	
 	protected void execute() {
 		double hPower = oi.getDriveJoystick().getLeftX();
@@ -32,7 +40,7 @@ public class UserDrive extends CommandBase {
 			turn = 0;
 		}
 		drive.drive(-vPower);
-		oi.getDriveJoystick().setRumble(type, 0.5);
+		//oi.getDriveJoystick().setRumble(type, 0.5);
 		drive.turn(-turn);
 
 		//boolean aButton = 

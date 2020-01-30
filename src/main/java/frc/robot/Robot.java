@@ -58,9 +58,17 @@ public class Robot extends TimedRobot {
 		//System.out.println("This works");
 
 		CommandBase.colorSensor.readColor();
-		CommandBase.colorSensor.readIR();
+		double IR = CommandBase.colorSensor.readIR();
 		CommandBase.colorSensor.outputValues();
 
+		if(IR <= 15){
+			CommandBase.drive.userDrive.vibrator();
+		} else {
+			CommandBase.drive.userDrive.stopVibrator();
+		}
+
+		
+		
 
 		
 	}

@@ -50,8 +50,9 @@ public class ColorSensor extends Subsystem {
     detectedColor = m_colorSensor.getColor();
   }
 
-  public void readIR(){
+  public double readIR(){
     IR = m_colorSensor.getIR();
+    return IR;
   }
 
   public void outputValues(){

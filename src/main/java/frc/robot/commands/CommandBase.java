@@ -12,7 +12,7 @@ public abstract class CommandBase extends Command {
 	 * Inherited static access to the OI.
 	 */
 	protected static OI oi;
-	protected static Drive drive;
+	public static Drive drive;
 	protected static Pneumatics pneumatics;
 	public static ColorSensor colorSensor;
 	/**
