@@ -75,6 +75,7 @@ public class OI {
 		 driveJoystick.bWhenPressed(new boxClose());
 		 driveJoystick.rightThumbWhenPressed(new hookExtend());
 		 driveJoystick.rightThumbWhenReleased(new hookContract());
+		 
 		}
 	
 	public static OI getInstance() {
