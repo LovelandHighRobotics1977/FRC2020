@@ -1,8 +1,6 @@
-
 import frc.robot.RobotMap;
 
 import frc.robot.commands.drive.UserDrive;
-package frc.robot.commands.drive;
 
 
 
@@ -17,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+public class ColorWheel{
 
 private TalonSRX colorWheel;
+}
