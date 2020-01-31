@@ -18,6 +18,8 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
+import edu.wpi.first.wpilibj.DriverStation;
+
 import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
 //import frc.robot.commands.autonomous.AutonomousDefault;
@@ -143,7 +145,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-
+/*  Limelight Camera Code
 		//Camera Code
 		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 		NetworkTableEntry tx = table.getEntry("tx");
@@ -159,6 +161,34 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("LimelightX", x);
 		SmartDashboard.putNumber("LimelightY", y);
 		SmartDashboard.putNumber("LimelightArea", area);
+
+ */
+				
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if(gameData.length() > 0)
+		{
+		switch (gameData.charAt(0))
+		{
+			case 'B' :
+			//Blue case code
+			break;
+			case 'G' :
+			//Green case code
+			break;
+			case 'R' :
+			//Red case code
+			break;
+			case 'Y' :
+			//Yellow case code
+			break;
+			default :
+			//This is corrupt data
+			break;
+		}
+		} else {
+		//Code for no data received yet
+		}
 	}
 
 	/**
