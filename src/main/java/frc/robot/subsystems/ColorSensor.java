@@ -56,8 +56,9 @@ public class ColorSensor extends Subsystem {
   }
 
   public void rotControl(){
-    double wheelCir;
-    double rotAmount = 
+    double wheelCir = 10; //Need to set to Cir in in
+    double rotAmount = 32 / wheelCir;
+    
   }
 
   public void posControl(){
