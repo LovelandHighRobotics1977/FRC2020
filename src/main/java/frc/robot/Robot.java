@@ -62,17 +62,6 @@ public class Robot extends TimedRobot {
 		CommandBase.colorSensor.readColor();
 		double IR = CommandBase.colorSensor.readIR();
 		CommandBase.colorSensor.outputValues();
-
-		if(IR <= 15){
-			CommandBase.drive.userDrive.vibrator();
-		} else {
-			CommandBase.drive.userDrive.stopVibrator();
-		}
-
-		
-		
-
-		
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -163,29 +152,10 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("LimelightArea", area);
 
  */
-				
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.length() > 0)
-		{
-		switch (gameData.charAt(0))
-		{
-			case 'B' :
-			//Blue case code
-			break;
-			case 'G' :
-			//Green case code
-			break;
-			case 'R' :
-			//Red case code
-			break;
-			case 'Y' :
-			//Yellow case code
-			break;
-			default :
-			//This is corrupt data
-			break;
-		}
+		if(gameData.length() > 0) {
+			CommandBase.colorSensor.setColor = gameData.charAt(0);
 		} else {
 		//Code for no data received yet
 		}

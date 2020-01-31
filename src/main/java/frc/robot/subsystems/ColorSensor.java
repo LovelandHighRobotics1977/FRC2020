@@ -13,7 +13,6 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.util.Color;
 
 import com.revrobotics.ColorSensorV3;
 
@@ -24,12 +23,13 @@ public class ColorSensor extends Subsystem {
 
   TalonSRX wheelMotor;
   static ColorSensor instance;
+  public char setColor;
 
   private final I2C.Port i2cPort = I2C.Port.kOnboard;
   private final ColorSensorV3 m_colorSensor;
 
   double IR;
-  Color detectedColor;
+  ColorSensorV3.RawColor detectedColor;
 
 
   ColorSensor(){
@@ -46,8 +46,7 @@ public class ColorSensor extends Subsystem {
 	}
   
   public void readColor(){
-
-    detectedColor = m_colorSensor.getColor();
+    detectedColor = m_colorSensor.getRawColor();
   }
 
   public double readIR(){
@@ -70,6 +69,8 @@ public class ColorSensor extends Subsystem {
     SmartDashboard.putNumber("Green", detectedColor.green);
     SmartDashboard.putNumber("Blue", detectedColor.blue);
     SmartDashboard.putNumber("IR", IR);
+
+    SmartDashboard.putString("Set Wheel:", String.valueOf(setColor));
   }
 
 
