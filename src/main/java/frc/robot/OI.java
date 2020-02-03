@@ -6,9 +6,10 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import frc.robot.commands.drive.*;
+import frc.robot.subsystems.*;
 import frc.robot.commands.pneumatics.*;
 import frc.robot.input.XBoxController;
+import frc.robot.commands.colorwheel.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -75,7 +76,7 @@ public class OI {
 		 driveJoystick.bWhenPressed(new boxClose());
 		 driveJoystick.rightThumbWhenPressed(new hookExtend());
 		 driveJoystick.rightThumbWhenReleased(new hookContract());
-		 auxJoystick.rightThumbWhileHeld(new colorwheel()) ;
+		 auxJoystick.rightThumbWhileHeld(new startColorWheel());
 		}
 	
 	public static OI getInstance() {
