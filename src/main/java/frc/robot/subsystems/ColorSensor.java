@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import frc.robot.RobotMap;
 
@@ -25,11 +27,15 @@ public class ColorSensor extends Subsystem {
   static ColorSensor instance;
   public char setColor;
 
+  public double speed = 0.5;
+
   private final I2C.Port i2cPort = I2C.Port.kOnboard;
   private final ColorSensorV3 m_colorSensor;
 
   double IR;
   ColorSensorV3.RawColor detectedColor;
+
+  ControlMode wheel = ControlMode.PercentOutput;
 
 
   ColorSensor(){
@@ -58,6 +64,18 @@ public class ColorSensor extends Subsystem {
     double wheelCir = 10; //Need to set to Cir in in
     double rotAmount = 32 / wheelCir;
     
+  }
+
+  public void manualRight(){
+    wheelMotor.set(wheel, speed);
+  }
+
+  public void manualLeft(){
+    wheelMotor.set(wheel, -speed);
+  }
+
+  public void stop(){
+    wheelMotor.set(wheel, 0);
   }
 
   public void posControl(){

@@ -10,6 +10,7 @@ package frc.robot;
 import frc.robot.input.XBoxController;
 import frc.robot.commands.pneumatics.*;
 import frc.robot.commands.winch.*;
+import frc.robot.commands.colorsensor.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -73,6 +74,9 @@ public class OI {
 		driveJoystick.xWhenPressed(new Retract());
 		driveJoystick.aWhenPressed(new Dump());
 		driveJoystick.bWhenPressed(new Back());
+
+		auxJoystick.rightWhenPressed(new ManualRight());
+		auxJoystick.leftWhenPressed(new ManualLeft());
 	}
 	
 	public static OI getInstance() {
