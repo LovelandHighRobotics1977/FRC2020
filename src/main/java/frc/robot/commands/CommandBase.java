@@ -4,6 +4,7 @@ import frc.robot.OI;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.MotorTest;
 import frc.robot.subsystems.Pneumatic;
+import frc.robot.subsystems.ColorWheel;
 
 public abstract class CommandBase extends Command {
 	/**
@@ -13,6 +14,7 @@ public abstract class CommandBase extends Command {
 	protected static MotorTest motorTest;
 	protected static Drive drive;
 	protected static Pneumatic pneumatic;
+	protected static ColorWheel colorwheel;
 	/**
 	 * Initialize the CommandBase, in doing so accessing and initializing every
 	 * primary subsystem on the robot. Use this during robot initialization to
@@ -23,5 +25,6 @@ public abstract class CommandBase extends Command {
 		oi = OI.getInstance();
 		motorTest = MotorTest.getInstance();
 		drive = Drive.getInstance();
+		colorwheel = ColorWheel.getInstance();
 	}
 }

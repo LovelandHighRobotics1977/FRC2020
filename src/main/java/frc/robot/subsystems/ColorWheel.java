@@ -24,18 +24,28 @@ public class ColorWheel extends Subsystem {
     private TalonSRX colorWheel;
 
     ControlMode iJustWantToSleep = ControlMode.PercentOutput;
-    
+    private static ColorWheel instance;
 
     ColorWheel() {
         colorWheel = new TalonSRX(RobotMap.COLOR_WHEEL);
-
+        
     }
 
     public void run(){
         colorWheel.set(iJustWantToSleep, 0.2);
 
     }
+    public static ColorWheel getInstance() {
 
+    	if (instance == null) {
+
+    		instance = new ColorWheel();
+
+    	}
+
+    	return instance;
+
+    }
     
 	@Override
 	protected void initDefaultCommand() {
