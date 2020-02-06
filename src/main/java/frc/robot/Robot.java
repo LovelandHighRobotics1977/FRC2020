@@ -59,9 +59,9 @@ public class Robot extends TimedRobot {
 	public void robotPeriodic() {
 		//System.out.println("This works");
 
-		CommandBase.colorSensor.readColor();
-		double IR = CommandBase.colorSensor.readIR();
-		CommandBase.colorSensor.outputValues();
+		//CommandBase.colorSensor.readColor();
+		//double IR = CommandBase.colorSensor.readIR();
+		//CommandBase.colorSensor.outputValues();
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.

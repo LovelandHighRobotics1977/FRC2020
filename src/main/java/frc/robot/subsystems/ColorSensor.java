@@ -53,7 +53,31 @@ public class ColorSensor extends Subsystem {
   
   public void readColor(){
     detectedColor = m_colorSensor.getRawColor();
-  }
+    int r = detectedColor.red;
+    int g = detectedColor.green;
+    int b = detectedColor.blue;
+    //Prototype Color Reader
+    String color = "";
+    if(b > g && g > r){
+      //Blue
+      System.out.println("Blue!?");
+      color = "Blue";
+    } else if (g > b && b > r){
+      //Green
+      System.out.println("Green!?");
+      color = "Green";
+      } else if (r > g && g > b){
+        //Red
+        System.out.println("Red!?");
+        color = "Red";
+      } else if (g > r && r > b){
+        //Yellow
+        System.out.println("Yellow!?");
+        color = "Yellow";
+      }
+      SmartDashboard.putString("I'm Seeing: ", color);
+    }
+  
 
   public double readIR(){
     IR = m_colorSensor.getIR();
@@ -64,6 +88,10 @@ public class ColorSensor extends Subsystem {
     double wheelCir = 10; //Need to set to Cir in in
     double rotAmount = 32 / wheelCir;
     
+  }
+
+  public void posControl(){
+
   }
 
   public void manualRight(){
@@ -78,9 +106,7 @@ public class ColorSensor extends Subsystem {
     wheelMotor.set(wheel, 0);
   }
 
-  public void posControl(){
 
-  }
 
   public void outputValues(){
     SmartDashboard.putNumber("Red", detectedColor.red);
