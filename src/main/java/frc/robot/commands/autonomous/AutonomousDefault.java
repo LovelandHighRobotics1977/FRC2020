@@ -19,6 +19,8 @@ public class AutonomousDefault extends CommandGroup {
 		addSequential(new DriveTime(0.5, time));
 		addTime(3000);
 		addSequential(new TurnTime(0.5, time));
+		addTime(3000);
+		addSequential(new DriveTime(0.5, time));
 		// addTime(3000);
 		// addSequential(new DriveTime(0, time));
 		// addTime(3000);
