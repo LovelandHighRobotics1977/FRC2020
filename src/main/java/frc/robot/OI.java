@@ -70,8 +70,8 @@ public class OI {
 		//auxJoystick.startWhenPressed(new CommandAutonomous());
 		//auxJoystick.rightThumbWhileHeld(command);
 
-		driveJoystick.yWhenPressed(new Extend());
-		driveJoystick.xWhileHeld(new ReadColor());
+		driveJoystick.yWhileHeld(new Extend());
+		driveJoystick.xWhileHeld(new Retract());
 		driveJoystick.aWhenPressed(new Dump());
 		driveJoystick.bWhenPressed(new Back());
 

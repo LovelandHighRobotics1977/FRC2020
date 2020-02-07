@@ -33,9 +33,10 @@ public class ColorSensor extends Subsystem {
   private final ColorSensorV3 m_colorSensor;
 
   double IR;
-  ColorSensorV3.RawColor detectedColor;
 
   ControlMode wheel = ControlMode.PercentOutput;
+  ColorSensorV3.RawColor detectedColor;
+
 
 
   ColorSensor(){
@@ -51,7 +52,7 @@ public class ColorSensor extends Subsystem {
     	return instance;
 	}
   
-  public void readColor(){
+  public String readColor(){
     detectedColor = m_colorSensor.getRawColor();
     int r = detectedColor.red;
     int g = detectedColor.green;
@@ -76,6 +77,7 @@ public class ColorSensor extends Subsystem {
         color = "Yellow";
       }
       SmartDashboard.putString("I'm Seeing: ", color);
+      return color;
     }
   
 
@@ -91,7 +93,41 @@ public class ColorSensor extends Subsystem {
   }
 
   public void posControl(){
-
+    String color = readColor();
+    /* If we're reading:
+      - Blue it's set to Red
+      - Green it's set to Yellow
+      - Red it's set to Blue
+      - Yellow it's set to Green
+    */
+      if(setColor == 'B'){
+        if(color == "Red"){
+          stop();
+        } else {
+          wheelMotor.set(wheel, speed);
+        }
+      }
+      if(setColor == 'G'){
+        if(color == "Yellow"){
+          stop();
+        } else {
+          wheelMotor.set(wheel, speed);
+        }
+      }
+      if(setColor == 'R'){
+        if(color == "Blue"){
+          stop();
+        } else {
+          wheelMotor.set(wheel, speed);
+        }
+      }
+      if(setColor == 'Y'){
+        if(color == "Green"){
+          stop();
+        } else {
+          wheelMotor.set(wheel, speed);
+        }
+      }
   }
 
   public void manualRight(){

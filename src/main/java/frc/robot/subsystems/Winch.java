@@ -22,7 +22,7 @@ public class Winch extends Subsystem {
 
     TalonSRX winchMotor;
     ControlMode winchMode = ControlMode.PercentOutput;
-    float speed = 0.3f;
+    float speed = 0.5f;
 
     Winch(){
       winchMotor = new TalonSRX(RobotMap.WINCH_MOTOR);
