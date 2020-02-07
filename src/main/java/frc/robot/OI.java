@@ -60,7 +60,7 @@ public class OI {
 	
 	public void init() {
 		//Put things here when you want buttons to trigger
-		//Speed toggle
+		//Speed togglei
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
 		//Turn functions for shoulders
 		//driveJoystick.rightWhileHeld(new TurnTime(500,-1));
