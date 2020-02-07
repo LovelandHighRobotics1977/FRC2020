@@ -62,19 +62,19 @@ public class ColorSensor extends Subsystem {
     String color = "";
     if(b > g && g > r){
       //Blue
-      System.out.println("Blue!?");
+      //System.out.println("Blue!?");
       color = "Blue";
     } else if (g > b && b > r){
       //Green
-      System.out.println("Green!?");
+      //System.out.println("Green!?");
       color = "Green";
       } else if (r > g && g > b){
         //Red
-        System.out.println("Red!?");
+        //System.out.println("Red!?");
         color = "Red";
       } else if (g > r && r > b){
         //Yellow
-        System.out.println("Yellow!?");
+        //System.out.println("Yellow!?");
         color = "Yellow";
       }
       SmartDashboard.putString("I'm Seeing: ", color);
