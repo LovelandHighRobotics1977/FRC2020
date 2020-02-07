@@ -26,9 +26,10 @@ public class ColorSensor extends Subsystem {
   TalonSRX wheelMotor;
   static ColorSensor instance;
   public char setColor;
-
+  public String initColor;
   public double speed = 0.5;
-
+  boolean canRead = true;
+  int count = 0;
   private final I2C.Port i2cPort = I2C.Port.kOnboard;
   private final ColorSensorV3 m_colorSensor;
 
@@ -86,10 +87,21 @@ public class ColorSensor extends Subsystem {
     return IR;
   }
 
+  //Need to rotate 3-5 times
   public void rotControl(){
-    double wheelCir = 10; //Need to set to Cir in in
-    double rotAmount = 32 / wheelCir;
-    
+    String color = readColor();
+
+    if(count >= 5){
+      stop();
+    } else {
+      wheelMotor.set(wheel, speed);
+      if(color == initColor && canRead){
+        canRead = false;
+        count++;
+      } else if(color != initColor){
+        canRead = true;
+      }
+    }
   }
 
   public void posControl(){
