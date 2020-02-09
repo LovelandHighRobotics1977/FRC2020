@@ -1,4 +1,4 @@
-package frc.robot.input;
+package frc.robot;
 
 //import java.util.Vector;
 

@@ -9,15 +9,12 @@ package frc.robot;
 
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.XBoxController;
 
-import frc.robot.commands.CommandBase;
-import frc.robot.commands.ExampleCommand;
-//import frc.robot.commands.autonomous.AutonomousDefault;
-import frc.robot.subsystems.ExampleSubsystem;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,31 +24,45 @@ import frc.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
-	public static OI oi;
-	public static CommandBase commandbase;
+	private XBoxController driveJoystick;
 
-	Command autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	ControlMode iJustWantToSleep = ControlMode.PercentOutput;
 
-	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
-	 */
+	private TalonSRX frontLeft;
+	private TalonSRX frontRight;
+	private TalonSRX backLeft;
+	private TalonSRX backRight;
+
 	@Override
 	public void robotInit() {
-		CommandBase.init();
-		oi = new OI();
-		oi.init();
-		m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", m_chooser);
+
+		//Talon Initialization
+		frontLeft = new TalonSRX(RobotMap.DRIVE_FRONT_LEFT_TAlON);
+    	frontRight = new TalonSRX(RobotMap.DRIVE_FRONT_RIGHT_TALON);
+    	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
+		backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);
+		
+		//Accounts for left motors facing opposite directions, allows positive values to relate to forward movement
+		frontLeft.setInverted(true);
+		backLeft.setInverted(true);
 	}
 
 	@Override
 	public void robotPeriodic() {
-		
+		double vPower = driveJoystick.getLeftY();
+		double turn = (driveJoystick.getLeftTriggerAxis() * 0.7)
+				- (driveJoystick.getRightTriggerAxis() * 0.7);
+
+		if (Math.abs(vPower) < .2) {
+			vPower = 0;
+		}
+
+		if (Math.abs(turn) < .2) {
+			turn = 0;
+		}
+
+		drive(vPower);
+		turn(turn);
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -61,6 +72,24 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledInit() {
 	}
+	public void drive(double vPower) {
+        frontLeft.set(iJustWantToSleep, vPower);
+        frontRight.set(iJustWantToSleep, vPower);
+        backLeft.set(iJustWantToSleep, vPower);
+        backRight.set(iJustWantToSleep, vPower);
+	}
+	
+	public void turn(double turn){
+		frontLeft.set(iJustWantToSleep, -turn);
+		frontRight.set(iJustWantToSleep, turn);
+		backLeft.set(iJustWantToSleep, -turn);
+		backRight.set(iJustWantToSleep, turn);
+	}
+	
+	public void stop() {
+		drive(0);
+		turn(0);
+    }
 
 	@Override
 	public void disabledPeriodic() {
@@ -80,26 +109,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		//autonomousCommand = m_chooser.getSelected();
-		System.out.println("Autonomous running");
-		//autonomousCommand = new AutonomousDefault(); //Uncomment if using auto
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(as
-		 * utoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
-		//if (autonomousCommand != null) {  //Uncomment if using auto
-		//	autonomousCommand.start();
-		//}
 	}
 
-	/**
-	 * This function is called periodically during autonomous.
-	 */
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
@@ -108,13 +119,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		System.out.println("Control?");
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		if (autonomousCommand != null) {
-			autonomousCommand.cancel();
-		}
 	}
 
 	/**
