@@ -129,12 +129,17 @@ public class Robot extends TimedRobot {
 		if (Math.abs(vPower) < .2) {
 			vPower = 0;
 		}
-
 		if (Math.abs(turn) < .2) {
 			turn = 0;
 			turning = false;
 		} else {
 			turning = true;
+		}
+		if(turn > 1){
+			turn = 1;
+		}
+		if(turn < -1){
+			turn = -1;
 		}
 
 		drive(-vPower);
