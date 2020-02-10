@@ -33,6 +33,8 @@ public class Robot extends TimedRobot {
 	private TalonSRX backLeft;
 	private TalonSRX backRight;
 
+	boolean turning;
+
 	@Override
 	public void robotInit() {
 
@@ -41,6 +43,8 @@ public class Robot extends TimedRobot {
     	frontRight = new TalonSRX(RobotMap.DRIVE_FRONT_RIGHT_TALON);
     	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
 		backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);
+
+		driveJoystick = new XBoxController(0);
 		
 		//Accounts for left motors facing opposite directions, allows positive values to relate to forward movement
 		frontLeft.setInverted(true);
@@ -49,20 +53,6 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void robotPeriodic() {
-		double vPower = driveJoystick.getLeftY();
-		double turn = (driveJoystick.getLeftTriggerAxis() * 0.7)
-				- (driveJoystick.getRightTriggerAxis() * 0.7);
-
-		if (Math.abs(vPower) < .2) {
-			vPower = 0;
-		}
-
-		if (Math.abs(turn) < .2) {
-			turn = 0;
-		}
-
-		drive(vPower);
-		turn(turn);
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -84,6 +74,10 @@ public class Robot extends TimedRobot {
 		frontRight.set(iJustWantToSleep, turn);
 		backLeft.set(iJustWantToSleep, -turn);
 		backRight.set(iJustWantToSleep, turn);
+	}
+
+	public void fullDrive(double drive, double turn){
+		
 	}
 	
 	public void stop() {
@@ -127,6 +121,26 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+
+		double vPower = driveJoystick.getLeftY();
+		double turn = (driveJoystick.getLeftTriggerAxis() * 0.7)
+				- (driveJoystick.getRightTriggerAxis() * 0.7);
+
+		if (Math.abs(vPower) < .2) {
+			vPower = 0;
+		}
+
+		if (Math.abs(turn) < .2) {
+			turn = 0;
+			turning = false;
+		} else {
+			turning = true;
+		}
+
+		drive(-vPower);
+		if(turning){
+			turn(-turn);
+		}
 	}
 
 	/**
