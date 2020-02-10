@@ -9,6 +9,7 @@ public class UserDrive extends CommandBase {
 	//Time for 180 degree turn
 
 	RumbleType type = RumbleType.kRightRumble;
+	boolean turning;
 	
 	public UserDrive() {
 		requires(drive);
@@ -38,10 +39,15 @@ public class UserDrive extends CommandBase {
 
 		if (Math.abs(turn) < .2) {
 			turn = 0;
+			turning = false;
+		} else {
+			turning = true;
 		}
-		drive.drive(-vPower);
+		drive.drive(vPower);
 		//oi.getDriveJoystick().setRumble(type, 0.5);
+		if(turning){
 		drive.turn(-turn);
+		}
 
 		//boolean aButton = 
 		/*if(oi.getDriveJoystick().getAButtonValue()){
