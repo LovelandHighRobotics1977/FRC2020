@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import frc.robot.subsystems.*;
 import frc.robot.commands.pneumatics.*;
 import frc.robot.input.XBoxController;
 import frc.robot.commands.colorwheel.*;
