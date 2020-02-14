@@ -7,6 +7,7 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 
 public class XBoxController extends Joystick{
 	// Instance values
@@ -537,4 +538,15 @@ public class XBoxController extends Joystick{
 		public int getPort() {
 			return port;
 		}
+
+		
+		public void DpadRight(Command command) {
+			getPOV(90);
+
+
+			}
+		}
+
 }
+
+		
