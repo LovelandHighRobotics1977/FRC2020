@@ -22,6 +22,15 @@ public class UserDrive extends CommandBase {
 	public void stopVibrator(){
 		oi.getDriveJoystick().setRumble(type, 0.0);
 	}
+
+	public double cap(double value, double cap){
+		if(value > cap){
+			value = cap;
+		} else if(value < -cap){
+			value = -cap;
+		}
+		return value;
+	}
 	
 	protected void execute() {
 		double hPower = oi.getDriveJoystick().getLeftX();
@@ -43,10 +52,10 @@ public class UserDrive extends CommandBase {
 		} else {
 			turning = true;
 		}
-		drive.drive(vPower);
+		drive.drive(cap(vPower, .8));
 		//oi.getDriveJoystick().setRumble(type, 0.5);
 		if(turning){
-		drive.turn(-turn);
+		drive.turn(cap(-turn, .6));
 		}
 
 		//boolean aButton = 
