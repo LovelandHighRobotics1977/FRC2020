@@ -9,7 +9,7 @@ public abstract class CommandBase extends Command {
 	 * Inherited static access to the OI.
 	 */
 	protected static OI oi;
-	protected static Drive drive;
+	public static Drive drive;
 	/**
 	 * Initialize the CommandBase, in doing so accessing and initializing every
 	 * primary subsystem on the robot. Use this during robot initialization to

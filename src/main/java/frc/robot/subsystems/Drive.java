@@ -26,10 +26,10 @@ public class Drive extends Subsystem {
 	private boolean speedToggle = false;
 	
 	
-	private TalonSRX frontLeft;
-	private TalonSRX frontRight;
-	private TalonSRX backLeft;
-	private TalonSRX backRight;
+	public TalonSRX frontLeft;
+	public TalonSRX frontRight;
+	public TalonSRX backLeft;
+	public TalonSRX backRight;
 	
 	
 	public UserDrive userDrive;
@@ -37,6 +37,8 @@ public class Drive extends Subsystem {
 	
 	private double voltageCoefficient = 1;
 	private double turnPowerCoefficient = 1;
+	
+	private int currentLimit = 10;
 
 	
 	public Drive(){
@@ -46,9 +48,23 @@ public class Drive extends Subsystem {
     	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
 		backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);
 		
+		
 		//Accounts for left motors facing opposite directions, allows positive values to relate to forward movement
 		frontLeft.setInverted(true);
 		backLeft.setInverted(true);
+
+		//Limit current draw to prevent brownout
+		frontLeft.enableCurrentLimit(true);
+		frontRight.enableCurrentLimit(true);
+		backLeft.enableCurrentLimit(true);
+		backRight.enableCurrentLimit(true);
+
+		frontLeft.configContinuousCurrentLimit(currentLimit);
+		frontRight.configContinuousCurrentLimit(currentLimit);
+		backLeft.configContinuousCurrentLimit(currentLimit);
+		backRight.configContinuousCurrentLimit(currentLimit);
+
+
 	}
 	
 	public void initDefaultCommand() {

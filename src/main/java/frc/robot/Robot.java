@@ -8,6 +8,7 @@
 package frc.robot;
 
 
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
 			= new ExampleSubsystem();
 	public static OI oi;
 	public static CommandBase commandbase;
+	public static PowerDistributionPanel pdp;
 
 	Command autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -44,6 +46,7 @@ public class Robot extends TimedRobot {
 		CommandBase.init();
 		oi = new OI();
 		oi.init();
+		pdp = new PowerDistributionPanel();
 		m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
@@ -123,6 +126,13 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+
+		SmartDashboard.putNumber("Front Left", pdp.getCurrent(12));
+		SmartDashboard.putNumber("Front Right", pdp.getCurrent(15));
+		SmartDashboard.putNumber("Back Left", pdp.getCurrent(13));
+		SmartDashboard.putNumber("Back Right", pdp.getCurrent(14));
+		SmartDashboard.putNumber("Total: ", pdp.getTotalCurrent());
+		
 	}
 
 	/**
