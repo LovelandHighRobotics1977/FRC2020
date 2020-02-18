@@ -38,7 +38,7 @@ public class Drive extends Subsystem {
 	private double voltageCoefficient = 1;
 	private double turnPowerCoefficient = 1;
 	
-	private int currentLimit = 10;
+	private int currentLimit = 5;
 
 	
 	public Drive(){

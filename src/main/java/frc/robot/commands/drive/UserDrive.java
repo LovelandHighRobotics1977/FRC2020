@@ -52,10 +52,10 @@ public class UserDrive extends CommandBase {
 		} else {
 			turning = true;
 		}
-		drive.drive(cap(vPower, .8));
+		drive.drive(vPower);
 		//oi.getDriveJoystick().setRumble(type, 0.5);
 		if(turning){
-		drive.turn(cap(-turn, .4));
+		drive.turn(-turn);
 		}
 
 		//boolean aButton = 
