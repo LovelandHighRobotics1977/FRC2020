@@ -20,7 +20,7 @@ public class Pneumatic extends Subsystem{
 	
 
 	Pneumatic(){
-		hook = new DoubleSolenoid(0, 0);
+		hook = new DoubleSolenoid(2, 3);
 		boxDump = new DoubleSolenoid(0,0);
 		boxOpen = new DoubleSolenoid(0,0);
 		boxLift1 = new DoubleSolenoid(0,0);
