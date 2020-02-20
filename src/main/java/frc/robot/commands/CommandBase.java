@@ -23,5 +23,6 @@ public abstract class CommandBase extends Command {
 		oi = OI.getInstance();
 		drive = Drive.getInstance();
 		colorwheel = ColorWheel.getInstance();
+		pneumatic = Pneumatic.getInstance();
 	}
 }
