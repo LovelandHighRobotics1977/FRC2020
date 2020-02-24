@@ -76,8 +76,8 @@ public class OI {
 		driveJoystick.bWhenPressed(new Back());
 		driveJoystick.rightWhenPressed(new PosControl());
 		driveJoystick.leftWhenPressed(new RotControl());
-		auxJoystick.rightWhenPressed(new ManualRight());
-		auxJoystick.leftWhenPressed(new ManualLeft());
+		driveJoystick.rightThumbWhenPressed(new ManualRight());
+		driveJoystick.leftThumbWhenPressed(new ManualLeft());
 	}
 	
 	public static OI getInstance() {
