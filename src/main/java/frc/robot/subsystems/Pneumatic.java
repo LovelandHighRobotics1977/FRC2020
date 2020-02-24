@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Pneumatic extends Subsystem{
 	public static Pneumatic instance;
 	private Compressor compressor1;
-	//Relay compressorRelay = new Relay(0);
 	DoubleSolenoid piston1;
 
 	
@@ -18,7 +17,6 @@ public class Pneumatic extends Subsystem{
 		piston1 = new DoubleSolenoid(0, 1);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
-		//compressorRelay.set(Relay.Value.kOn);
 		compressor1.start();
 		System.out.print("Compressing running? " + compressor1.enabled());
 	}
