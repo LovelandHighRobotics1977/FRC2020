@@ -15,7 +15,7 @@ public class Pneumatic extends Subsystem{
 	
 	
 	Pneumatic(){
-		piston1 = new DoubleSolenoid(6, 7);
+		piston1 = new DoubleSolenoid(0, 1);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
 		//compressorRelay.set(Relay.Value.kOn);
