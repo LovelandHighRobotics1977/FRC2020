@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.POVButton;
 
 public class XBoxController extends Joystick{
 	// Instance values
+		
 		private int port;
 		// Button inputs
 		private JoystickButton a;
@@ -52,6 +53,13 @@ public class XBoxController extends Joystick{
 		private JoystickButton addButton(int number) {
 			return new JoystickButton(this, number);
 		}
+		
+		public int pov(int POV){
+
+			return getPOV(POV);
+
+			
+		}
 
 		/**
 		 * Adds to this controller all of the possible buttons from which input is
@@ -68,7 +76,7 @@ public class XBoxController extends Joystick{
 			start = addButton(RobotMap.BUTTON_START);
 			thumbLeft = addButton(RobotMap.BUTTON_THUMB_LEFT);
 			thumbRight = addButton(RobotMap.BUTTON_THUMB_RIGHT);
-		}
+					}
 
 		// AButton Methods
 
@@ -111,6 +119,11 @@ public class XBoxController extends Joystick{
 			a.whenReleased(command);
 		}
 
+
+		public void aWhenInactive(Command command){
+
+			a.whenInactive(command);
+		}
 		/**
 		 * Sets the command to be run when the A button is pressed (a.get() becomes
 		 * true)
@@ -538,14 +551,8 @@ public class XBoxController extends Joystick{
 		public int getPort() {
 			return port;
 		}
-
 		
-		public void DpadRight(Command command) {
-			getPOV(90);
-
-
-			}
-		}
+	}
 
 
 

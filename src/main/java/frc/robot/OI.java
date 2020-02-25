@@ -73,9 +73,16 @@ public class OI {
 		//  driveJoystick.yWhenReleased(new boxDescend());
 		//  driveJoystick.aWhenPressed(new boxOpen());
 		//  driveJoystick.bWhenPressed(new boxClose());
-		 driveJoystick.rightThumbWhileHeld(new hookExtend());
-		 driveJoystick.rightThumbWhenReleased(new hookContract());
+		 //driveJoystick.rightThumbWhileHeld(new hookExtend());
+		 //driveJoystick.rightThumbWhenReleased(new hookContract());
 		 //auxJoystick.rightThumbWhileHeld(new startColorWheel());
+		 if(driveJoystick.getPOV() == 90){
+			driveJoystick.aWhenInactive(new hookExtend());
+
+		 }
+
+		 
+
 		}
 	
 	public static OI getInstance() {
