@@ -547,6 +547,5 @@ public class XBoxController extends Joystick{
 			}
 		}
 
-}
 
 		
