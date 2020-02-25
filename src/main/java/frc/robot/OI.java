@@ -67,6 +67,16 @@ public class OI {
 		//driveJoystick.rightWhenPressed(new TurnTime(500,1)); //THIS NEEDS TO BE Adjusted
 		//auxJoystick.startWhenPressed(new CommandAutonomous());
 		//auxJoystick.rightThumbWhileHeld(command);
+
+		 driveJoystick.xWhileHeld(new boxUp());
+		 driveJoystick.xWhenReleased(new boxDown());
+		 driveJoystick.xWhileHeld(new boxElevate());
+		 driveJoystick.xWhenReleased(new boxDescend());
+		 driveJoystick.xWhenPressed(new boxOpen());
+		 driveJoystick.xWhenPressed(new boxClose());
+		 auxJoystick.rightThumbWhileHeld(new hookExtend());
+		 auxJoystick.rightThumbWhenReleased(new hookContract());
+		 auxJoystick.leftThumbWhileHeld(new startColorWheel());
 		//  driveJoystick.xWhileHeld(new boxUp());
 		//  driveJoystick.xWhenReleased(new boxDown());
 		//  driveJoystick.yWhileHeld(new boxElevate());
@@ -83,6 +93,7 @@ public class OI {
 
 		 
 
+>>>>>>> 23bbc7d72418da6654a770fc9482d83ea854a7c3
 		}
 	
 	public static OI getInstance() {
