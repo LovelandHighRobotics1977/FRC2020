@@ -20,12 +20,12 @@ public class Pneumatic extends Subsystem{
 	
 
 	Pneumatic(){
-		hook = new DoubleSolenoid(2, 3);
-		boxDump = new DoubleSolenoid(0,1);
-		boxOpen = new DoubleSolenoid(4,5);
-		boxLift1 = new DoubleSolenoid(6,7);
-		boxLift2 = new DoubleSolenoid(8,9);
-		boxCover = new DoubleSolenoid(10,11);
+		hook = new DoubleSolenoid(2,3);
+		// boxDump = new DoubleSolenoid(0,1);
+		// boxOpen = new DoubleSolenoid(4,5);
+		// boxLift1 = new DoubleSolenoid(6,7);
+		// boxLift2 = new DoubleSolenoid(8,9);
+		// boxCover = new DoubleSolenoid(10,11);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
 		//compressorRelay.set(Relay.Value.kOn);
