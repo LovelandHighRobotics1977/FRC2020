@@ -40,8 +40,8 @@ public class Winch extends Subsystem {
       winchMotor.set(winchMode, -speed);
     }
 
-    public void extend(){
-      winchMotor.set(winchMode, speed);
+    public void extend(float givenSpeed){
+      winchMotor.set(winchMode, givenSpeed);
     }
 
     public void stop(){

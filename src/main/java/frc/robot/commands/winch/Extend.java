@@ -34,7 +34,13 @@ public class Extend extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    winch.extend();
+    int pov = oi.getDriveJoystick().getPOV();
+    System.out.println(pov);
+    if(pov == 0){
+      winch.extend(0.2f);
+    } else if (pov == 90){
+      winch.extend(0.5f);
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

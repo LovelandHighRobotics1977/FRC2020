@@ -110,6 +110,10 @@ public class XBoxController extends Joystick{
 			a.whenReleased(command);
 		}
 
+		public void aWhenInactive(Command command){
+			a.whenInactive(command);
+		}
+
 		/**
 		 * Sets the command to be run when the A button is pressed (a.get() becomes
 		 * true)
