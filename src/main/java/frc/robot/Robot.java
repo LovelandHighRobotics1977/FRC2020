@@ -46,6 +46,7 @@ public class Robot extends TimedRobot {
 		CommandBase.init();
 		oi = new OI();
 		oi.init();
+		
 		m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
