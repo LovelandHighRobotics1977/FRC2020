@@ -68,24 +68,25 @@ public class OI {
 		//auxJoystick.startWhenPressed(new CommandAutonomous());
 		//auxJoystick.rightThumbWhileHeld(command);
 
-		 driveJoystick.xWhileHeld(new boxUp());
-		 driveJoystick.xWhenReleased(new boxDown());
-		 driveJoystick.xWhileHeld(new boxElevate());
-		 driveJoystick.xWhenReleased(new boxDescend());
-		 driveJoystick.xWhenPressed(new boxOpen());
-		 driveJoystick.xWhenPressed(new boxClose());
-		 auxJoystick.rightThumbWhileHeld(new hookExtend());
-		 auxJoystick.rightThumbWhenReleased(new hookContract());
-		 auxJoystick.leftThumbWhileHeld(new startColorWheel());
+		 
 		//  driveJoystick.xWhileHeld(new boxUp());
 		//  driveJoystick.xWhenReleased(new boxDown());
 		//  driveJoystick.yWhileHeld(new boxElevate());
 		//  driveJoystick.yWhenReleased(new boxDescend());
 		//  driveJoystick.aWhenPressed(new boxOpen());
 		//  driveJoystick.bWhenPressed(new boxClose());
-		 driveJoystick.rightThumbWhileHeld(new hookExtend());
-		 driveJoystick.rightThumbWhenReleased(new hookContract());
+		 //driveJoystick.rightThumbWhileHeld(new hookExtend());
+		 //driveJoystick.rightThumbWhenReleased(new hookContract());
 		 //auxJoystick.rightThumbWhileHeld(new startColorWheel());
+<<<<<<< HEAD
+=======
+		 if(driveJoystick.getPOV() == 90){
+			driveJoystick.aWhenInactive(new hookExtend());
+
+		 }
+
+		
+>>>>>>> 606d969dc689645fa301f16d391282ab9fc23be9
 		}
 	
 	public static OI getInstance() {
