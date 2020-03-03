@@ -89,7 +89,7 @@ public class ColorSensor extends Subsystem {
   public void rotControl(){
     String color = readColor();
 
-    if(count >= 5){
+    if(count >= 3){
       stop();
     } else {
       wheelMotor.set(wheel, speed);
@@ -98,6 +98,7 @@ public class ColorSensor extends Subsystem {
         count++;
       } else if(color != initColor){
         canRead = true;
+        initColor = color;
       }
     }
   }
