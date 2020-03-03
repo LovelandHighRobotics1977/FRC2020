@@ -74,8 +74,8 @@ public class OI {
 		driveJoystick.xWhenPressed(new Lower());
 		driveJoystick.aWhenPressed(new Dump());
 		driveJoystick.bWhenPressed(new Back());
-		driveJoystick.rightWhenPressed(new PosControl());
-		driveJoystick.leftWhenPressed(new RotControl());
+		driveJoystick.rightWhileHeld(new PosControl());
+		driveJoystick.leftWhileHeld(new RotControl());
 		driveJoystick.rightThumbWhileHeld(new ManualRight());
 		driveJoystick.leftThumbWhileHeld(new ManualLeft());
 		driveJoystick.aWhenInactive(new Extend());
