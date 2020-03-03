@@ -54,7 +54,7 @@ public class Drive extends Subsystem {
 	public void initDefaultCommand() {
 	       userDrive = new UserDrive();
 	       setDefaultCommand(userDrive);
-	    }
+	}
 	
 	public static Drive getInstance() {
     	if (instance == null) {
