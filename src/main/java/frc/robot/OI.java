@@ -78,15 +78,12 @@ public class OI {
 		 //driveJoystick.rightThumbWhileHeld(new hookExtend());
 		 //driveJoystick.rightThumbWhenReleased(new hookContract());
 		 //auxJoystick.rightThumbWhileHeld(new startColorWheel());
-<<<<<<< HEAD
-=======
 		 if(driveJoystick.getPOV() == 90){
 			driveJoystick.aWhenInactive(new hookExtend());
-
-		 }
-
 		
->>>>>>> 606d969dc689645fa301f16d391282ab9fc23be9
+		}
+
+
 		}
 	
 	public static OI getInstance() {
