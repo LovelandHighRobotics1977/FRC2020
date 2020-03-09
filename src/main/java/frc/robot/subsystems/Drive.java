@@ -76,7 +76,8 @@ public class Drive extends Subsystem {
         frontLeft.set(iJustWantToSleep, vPower);
         frontRight.set(iJustWantToSleep, vPower);
         backLeft.set(iJustWantToSleep, vPower);
-        backRight.set(iJustWantToSleep, vPower);
+		backRight.set(iJustWantToSleep, vPower);
+		System.out.println("Power is " + vPower);
 	}
 	
 	public void turn(double turn){

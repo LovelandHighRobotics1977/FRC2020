@@ -78,7 +78,7 @@ public class OI {
 		driveJoystick.leftWhileHeld(new RotControl());
 		driveJoystick.rightThumbWhileHeld(new ManualRight());
 		driveJoystick.leftThumbWhileHeld(new ManualLeft());
-		driveJoystick.aWhenInactive(new Extend());
+		//driveJoystick.aWhenInactive(new Extend());
 	}
 	
 	public static OI getInstance() {

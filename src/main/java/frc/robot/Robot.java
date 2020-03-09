@@ -97,9 +97,9 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		//if (autonomousCommand != null) {  //Uncomment if using auto
-		//	autonomousCommand.start();
-		//}
+		// if (autonomousCommand != null) {  //Uncomment if using auto
+		// 	autonomousCommand.start();
+		// }
 	}
 
 	/**
