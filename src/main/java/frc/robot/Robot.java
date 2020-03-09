@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 import edu.wpi.first.wpilibj.DriverStation;
 
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
 			= new ExampleSubsystem();
 	public static OI oi;
 	public static CommandBase commandbase;
+	public static PowerDistributionPanel pdp;
 
 	Command autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -47,6 +49,7 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		oi.init();
 		
+		pdp = new PowerDistributionPanel(0);
 		m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
@@ -57,6 +60,9 @@ public class Robot extends TimedRobot {
 		//CommandBase.colorSensor.readColor();
 		//double IR = CommandBase.colorSensor.readIR();
 		//CommandBase.colorSensor.outputValues();
+		SmartDashboard.putNumber("PDP: ", pdp.getTotalCurrent());
+		SmartDashboard.putNumber("Compressor: ", commandbase.pneumatics.compressor1.getCompressorCurrent());
+
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.

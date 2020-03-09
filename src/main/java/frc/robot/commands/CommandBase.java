@@ -14,7 +14,7 @@ public abstract class CommandBase extends Command {
 	 */
 	protected static OI oi;
 	public static Drive drive;
-	protected static Pneumatics pneumatics;
+	public static Pneumatics pneumatics;
 	public static ColorSensor colorSensor;
 	protected static Winch winch;
 	/**

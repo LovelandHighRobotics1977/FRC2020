@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pneumatics extends Subsystem{
 	public static Pneumatics instance;
-	private Compressor compressor1;
+	public Compressor compressor1;
 	//Relay compressorRelay = new Relay(0);
     DoubleSolenoid dumpPiston;
 	DoubleSolenoid climbPiston;
