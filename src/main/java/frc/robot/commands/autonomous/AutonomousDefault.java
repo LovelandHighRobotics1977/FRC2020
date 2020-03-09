@@ -12,11 +12,11 @@
      public AutonomousDefault() {
  		// Pause for 118 or any additional teams
  		time = 0;
- 		addTime(3000);
+ 		addTime(500);
         addSequential(new DriveTime(.5, time));
-        addTime(3000);
+        addTime(500);
         addSequential(new TurnTime(.5, time));
-        addTime(3000);
+        addTime(500);
         addSequential(new DriveTime(.5, time));
 
 
