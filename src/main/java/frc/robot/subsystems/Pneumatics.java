@@ -11,11 +11,12 @@ public class Pneumatics extends Subsystem{
 	private Compressor compressor1;
 	//Relay compressorRelay = new Relay(0);
     DoubleSolenoid dumpPiston;
-
+	DoubleSolenoid climbPiston;
 	
 	
 	Pneumatics(){
-        dumpPiston = new DoubleSolenoid(4,5);
+		dumpPiston = new DoubleSolenoid(4,5);
+		climbPiston = new DoubleSolenoid(0,1);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
 		//compressorRelay.set(Relay.Value.kOn);
@@ -36,10 +37,19 @@ public class Pneumatics extends Subsystem{
     }
     public void back(){
         dumpPiston.set(DoubleSolenoid.Value.kReverse);
-    }
+	}
+	
+	public void climb(){
+		climbPiston.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void lower(){
+		climbPiston.set(DoubleSolenoid.Value.kOff);
+	}
 	
 	public void stop() {
-        dumpPiston.set(DoubleSolenoid.Value.kOff);
+		dumpPiston.set(DoubleSolenoid.Value.kOff);
+		climbPiston.set(DoubleSolenoid.Value.kOff);
 		//compressorRelay.set(Relay.Value.kOff);
 	}
 	

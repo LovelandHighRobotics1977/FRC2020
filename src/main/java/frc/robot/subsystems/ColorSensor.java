@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -21,7 +21,7 @@ import com.revrobotics.ColorSensorV3;
 
 public class ColorSensor extends Subsystem {
 
-  TalonSRX wheelMotor;
+  VictorSPX wheelMotor;
   static ColorSensor instance;
   public char setColor;
   public String initColor;
@@ -39,7 +39,7 @@ public class ColorSensor extends Subsystem {
 
 
   ColorSensor(){
-    wheelMotor = new TalonSRX(RobotMap.WHEEL_MOTOR);
+    wheelMotor = new VictorSPX(RobotMap.WHEEL_MOTOR);
     m_colorSensor = new ColorSensorV3(i2cPort);
   }
 
@@ -89,7 +89,7 @@ public class ColorSensor extends Subsystem {
   public void rotControl(){
     String color = readColor();
 
-    if(count >= 5){
+    if(count >= 3){
       stop();
     } else {
       wheelMotor.set(wheel, speed);
@@ -98,6 +98,7 @@ public class ColorSensor extends Subsystem {
         count++;
       } else if(color != initColor){
         canRead = true;
+        initColor = color;
       }
     }
   }

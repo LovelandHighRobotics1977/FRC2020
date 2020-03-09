@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.winch;
+package frc.robot.commands.pneumatics;
 
 //import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.CommandBase;
@@ -15,13 +15,13 @@ import frc.robot.commands.CommandBase;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class Extend extends CommandBase {
+public class Lower extends CommandBase {
   long startTime;
   long endTime;
   long commandTime = 5000;
-  public Extend() {
+  public Lower() {
     // Use requires() here to declare subsystem dependencies
-    requires(winch);
+    requires(pneumatics);
   }
 
   // Called just before this Command runs the first time
@@ -34,13 +34,7 @@ public class Extend extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    int pov = oi.getDriveJoystick().getPOV();
-    System.out.println(pov);
-    if(pov == 0){
-      winch.extend(0.2f);
-    } else if (pov == 90){
-      winch.extend(0.5f);
-    }
+    pneumatics.lower();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -53,13 +47,13 @@ public class Extend extends CommandBase {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    winch.stop();
+    pneumatics.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    winch.stop();
+    pneumatics.stop();
   }
 }
