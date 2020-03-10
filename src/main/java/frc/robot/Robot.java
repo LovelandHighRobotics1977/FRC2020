@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 
 import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.autonomous.AutonomousDefault;
 //import frc.robot.commands.autonomous.AutonomousDefault;
 import frc.robot.subsystems.ExampleSubsystem;
 
@@ -50,7 +51,7 @@ public class Robot extends TimedRobot {
 		oi.init();
 		
 		pdp = new PowerDistributionPanel(0);
-		m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
+		m_chooser.setDefaultOption("Default Auto", new AutonomousDefault());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
@@ -93,7 +94,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		//autonomousCommand = m_chooser.getSelected();
 		System.out.println("Autonomous running");
-		//autonomousCommand = new AutonomousDefault(); //Uncomment if using auto
+		autonomousCommand = new AutonomousDefault(); //Uncomment if using auto
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(as
@@ -103,9 +104,9 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		// if (autonomousCommand != null) {  //Uncomment if using auto
-		// 	autonomousCommand.start();
-		// }
+		if (autonomousCommand != null) {  //Uncomment if using auto
+			autonomousCommand.start();
+		}
 	}
 
 	/**
