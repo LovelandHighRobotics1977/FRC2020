@@ -9,19 +9,16 @@ public class TurnTime extends CommandBase {
     private final String subsytemName = "Drive";*/
 
     private final double vPower;
-    private final long startTime,  endTime;
 
     private double turnSpeed;
     
     //Percentage goes from -1 to 1 - See CTRE documentation http://www.ctr-electronics.com/downloads/api/java/html/index.html
-    public TurnTime(double speedPercent, int timeMillis) {
+    public TurnTime(double speedPercent) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(drive);
         
         vPower = speedPercent;
-        startTime = System.currentTimeMillis();
-        endTime = startTime + timeMillis;
         System.out.println("drive time is go");
     }
     //EPIC
@@ -38,9 +35,7 @@ public class TurnTime extends CommandBase {
 	
 	// Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Current: " + System.currentTimeMillis());
-    	System.out.println("End: " + endTime);
-        return (System.currentTimeMillis() >= endTime);
+        return false;
     }
 
     // Called once after isFinished returns true

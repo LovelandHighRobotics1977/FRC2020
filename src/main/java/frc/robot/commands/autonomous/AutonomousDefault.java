@@ -7,25 +7,13 @@
 
  public class AutonomousDefault extends CommandGroup {	
 	
- 	int time;
 
      public AutonomousDefault() {
- 		// Pause for 118 or any additional teams
- 		time = 0;
- 		addTime(500);
-        addSequential(new DriveTime(.5, time));
-        addTime(500);
-        addSequential(new TurnTime(.5, time));
-        addTime(500);
-        addSequential(new DriveTime(.5, time));
+		// Takes in command then time in seconds, NOT miliseconds
+        addSequential(new DriveTime(.5), 2);
+        addSequential(new TurnTime(.5), 2);
+        addSequential(new DriveTime(.5), 2);
 
-
-         
- 	}
- 	// This function allows us to only set the time we want the function to run for, rather than manually needing to add up
- 	// the time eaach time
- 	void addTime(int timeAdd) {
- 		time += timeAdd;
  	}
 	
  }
