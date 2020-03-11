@@ -19,7 +19,7 @@ public class TurnTime extends CommandBase {
         requires(drive);
         
         vPower = speedPercent;
-        System.out.println("drive time is go");
+        //System.out.println("drive time is go");
     }
     //EPIC
  // Called just before this Command runs the first time
