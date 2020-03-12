@@ -16,6 +16,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
+import edu.wpi.cscore.UsbCamera;
 
 import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
@@ -37,6 +43,9 @@ public class Robot extends TimedRobot {
 	public static CommandBase commandbase;
 	public static PowerDistributionPanel pdp;
 
+	UsbCamera camera1;
+	NetworkTableEntry cameraSelection;
+
 	Command autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -49,7 +58,9 @@ public class Robot extends TimedRobot {
 		CommandBase.init();
 		oi = new OI();
 		oi.init();
-		
+
+		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
 		pdp = new PowerDistributionPanel(0);
 		m_chooser.setDefaultOption("Default Auto", new AutonomousDefault());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -63,7 +74,7 @@ public class Robot extends TimedRobot {
 		//CommandBase.colorSensor.outputValues();
 		SmartDashboard.putNumber("PDP: ", pdp.getTotalCurrent());
 		SmartDashboard.putNumber("Compressor: ", commandbase.pneumatics.compressor1.getCompressorCurrent());
-
+		cameraSelection.setString(camera1.getName());
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -143,6 +154,26 @@ public class Robot extends TimedRobot {
 		} else {
 		//Code for no data received yet
 		}
+
+		//Camera Code
+		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+		NetworkTableEntry tx = table.getEntry("tx");
+		NetworkTableEntry ty = table.getEntry("ty");
+		NetworkTableEntry ta = table.getEntry("ta");
+
+		NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(1);
+
+		//read values periodically
+		double x = tx.getDouble(0.0);
+		double y = ty.getDouble(0.0);
+		double area = ta.getDouble(0.0);
+
+		//post to smart dashboard periodically
+		//SmartDashboard.putNumber("LimelightX", x);
+		//SmartDashboard.putNumber("LimelightY", y);
+		//SmartDashboard.putNumber("LimelightArea", area);
+
+		
 	}
 
 	/**

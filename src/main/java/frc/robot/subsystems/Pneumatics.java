@@ -15,7 +15,7 @@ public class Pneumatics extends Subsystem{
 	
 	
 	Pneumatics(){
-		dumpPiston = new DoubleSolenoid(6,7);
+		dumpPiston = new DoubleSolenoid(2,5);
 		climbPiston = new DoubleSolenoid(0,1);
 		compressor1 = new Compressor(0);
 		compressor1.setClosedLoopControl(true);
