@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
 		oi.init();
 
 		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
+		cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("camera1");
 		pdp = new PowerDistributionPanel(0);
 		m_chooser.setDefaultOption("Default Auto", new AutonomousDefault());
 		// chooser.addObject("My Auto", new MyAutoCommand());
